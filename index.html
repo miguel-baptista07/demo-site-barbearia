@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Barbearia Carlos, Avenida de Roma</title>
+<link rel="icon" href="logo.png">
 <meta name="description" content="Barbearia Carlos, Av. de Roma 141 B, Lisboa. Corte, barba e barbear com toalha quente. Ligue 217 969 254.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,9 @@
   .demo{background:var(--ink);color:var(--tile);text-align:center;font:600 .8125rem/1.4 var(--display);padding:8px 16px}
 
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid var(--rule)}
-  .brand{font:800 1.25rem/1 var(--display);color:var(--ink);text-decoration:none}
+  .brand{display:flex;align-items:center;gap:12px;font:800 1.25rem/1 var(--display);color:var(--ink);text-decoration:none}
+  .brand-logo{height:44px;width:auto;display:block}
+  .hero-logo{width:100%;max-width:300px;height:auto;align-self:center;justify-self:end}
   header nav{display:flex;gap:26px;font:700 .9375rem/1 var(--display)}
   header nav a{color:var(--steel);text-decoration:none}
   header nav a:hover{color:var(--ink)}
@@ -34,7 +37,7 @@
 
   /* hero com poste */
   .hero{padding:72px 0 104px}
-  .hero .wrap{display:grid;grid-template-columns:44px 1fr;gap:40px;align-items:stretch}
+  .hero .wrap{display:grid;grid-template-columns:44px 1fr minmax(0,300px);gap:40px;align-items:stretch}
   .pole{border-radius:22px;border:3px solid var(--ink);min-height:420px;
     background:repeating-linear-gradient(135deg,var(--red) 0 18px,var(--tile) 18px 30px,#2B5C9E 30px 48px,var(--tile) 48px 60px)}
   .hero h1{font:800 clamp(3.2rem,9vw,6.25rem)/.92 var(--display);letter-spacing:-.02em}
@@ -50,6 +53,7 @@
   @media(max-width:640px){
     .hero{padding:48px 0 80px}
     .hero .wrap{grid-template-columns:22px 1fr;gap:22px}
+    .hero-logo{display:none}
     .pole{min-height:360px;border-width:2px}
   }
 
@@ -95,7 +99,7 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#">Barbearia Carlos</a>
+    <a class="brand" href="#"><img class="brand-logo" src="logo.png" alt="">Barbearia Carlos</a>
     <nav aria-label="Principal">
       <a href="#servicos">Serviços</a>
       <a href="#horario">Horário</a>
@@ -118,6 +122,7 @@
       <p class="sub-actions"><a href="https://www.google.com/maps/search/?api=1&query=Av.+de+Roma+141B,+1700-346+Lisboa">Ver como chegar</a></p>
       <p class="rating"><b>4,8 em 183 avaliações</b> no Google.</p>
     </div>
+    <img class="hero-logo" src="logo.png" alt="Logótipo da Barbearia Carlos, desde 1958">
   </div>
 </div>
 
