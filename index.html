@@ -91,6 +91,12 @@
   .map iframe{width:100%;height:100%;min-height:320px;border:0}
 
   footer .wrap{border-top:1px solid var(--rule);padding:28px 20px 40px;color:var(--steel);font-size:.9375rem}
+
+  /* marca de água de contacto */
+  .mkmark{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:8px;background:#0b0c0e;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:9px 15px;font:600 13px/1.25 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .mkmark span{font-weight:500;opacity:.8}
+  .mkmark:hover,.mkmark:focus-visible{background:#1d2026;outline:2px solid #fff;outline-offset:2px}
+  @media (max-width:480px){.mkmark{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));justify-content:center}}
 </style>
 </head>
 <body>
@@ -168,7 +174,8 @@
 </section>
 </main>
 
-<footer><div class="wrap">Barbearia Carlos, Avenida de Roma, Lisboa</div></footer>
+<footer><div class="wrap">Barbearia Carlos, Avenida de Roma, Lisboa<br>Maquete por Miguel Baptista · <a href="https://wa.me/351934674335">934 674 335</a> · <a href="mailto:miguelkevlin23@gmail.com">miguelkevlin23@gmail.com</a></div></footer>
 
+<a class="mkmark" href="https://wa.me/351934674335?text=Ol%C3%A1%20Miguel%2C%20vi%20o%20teu%20site%20e%20gostava%20de%20saber%20mais." target="_blank" rel="noopener" aria-label="Contactar Miguel Baptista por WhatsApp"><span>Site por</span> Miguel Baptista <span>934 674 335</span></a>
 </body>
 </html>
