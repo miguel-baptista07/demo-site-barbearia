@@ -8,18 +8,20 @@
 <meta name="description" content="Paulo's Barbershop em Manique de Baixo, Alcabideche. Cortes, degradês e barba desde 2016. Marcação online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Kaushan+Script&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #121417;
-    --bg2: #1a1d21;
-    --fg: #f3f0e8;
-    --muted: #a9adb3;
-    --line: #2b2f35;
-    --led: #5b8dff;
+    --bg: #111214;
+    --bg2: #18191c;
+    --fg: #f2efe7;
+    --muted: #a9a9a4;
+    --line: #2c2d31;
+    --led: #5a8cff;
     --led-ink: #0a0f1c;
     --red: #e03a3e;
     --pole-blue: #2f5dd6;
+    --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    --script: "Kaushan Script", "Segoe Script", "Brush Script MT", cursive;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
@@ -28,91 +30,117 @@
     background: var(--bg);
     color: var(--fg);
     font-family: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.55;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
     padding-bottom: 72px;
   }
+  /* grão de quadro preto, quase impercetível */
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   a { color: inherit; }
   .wrap { max-width: 1080px; margin: 0 auto; }
-  h1, h2, h3 { font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif; font-weight: 400; letter-spacing: .02em; margin: 0; text-wrap: balance; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .015em; margin: 0; text-wrap: balance; }
   .eyebrow { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
 
   /* cabeçalho */
-  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; position: relative; }
-  header::after { content: ""; position: absolute; left: -16px; right: -16px; bottom: 0; height: 2px; background: var(--led); box-shadow: 0 0 14px 2px rgba(91,141,255,.7); border-radius: 2px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .brand img { width: 46px; height: 46px; border-radius: 50%; background: #fff; object-fit: contain; padding: 2px; }
-  .brand span { font-family: "Bebas Neue", Impact, sans-serif; font-size: 25px; letter-spacing: .04em; white-space: nowrap; }
-  nav { display: none; gap: 24px; font-size: 15px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+  .brand img { width: 46px; height: 46px; border-radius: 50%; background: #fff; object-fit: contain; padding: 2px; flex: none; }
+  .brand span { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 26px; letter-spacing: .04em; white-space: nowrap; }
+  nav { display: none; gap: 26px; font-size: 16px; }
   nav a { text-decoration: none; color: var(--muted); }
   nav a:hover, nav a:focus-visible { color: var(--fg); }
   @media (min-width: 760px) { nav { display: flex; } }
-  @media (max-width: 480px) { .brand span { font-size: 21px; } .brand img { width: 40px; height: 40px; } header .btn { padding: 10px 16px; } }
-  .brand { min-width: 0; }
+  .brand span { overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 480px) { .brand span { font-size: 20px; letter-spacing: .02em; } .brand img { width: 38px; height: 38px; } header .btn { padding: 10px 16px; } }
 
-  .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 16px; padding: 12px 20px; border-radius: 6px; border: 2px solid var(--led); line-height: 1.2; text-align: center; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 16px; padding: 12px 20px; border-radius: 4px; border: 2px solid var(--led); line-height: 1.2; text-align: center; }
   .btn-primary { background: var(--led); color: var(--led-ink); }
-  .btn-primary:hover, .btn-primary:focus-visible { background: #7da3ff; border-color: #7da3ff; }
+  .btn-primary:hover, .btn-primary:focus-visible { background: #84a8ff; border-color: #84a8ff; }
   .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
   .btn-ghost:hover, .btn-ghost:focus-visible { border-color: var(--fg); }
   a:focus-visible, .btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
 
   /* hero */
-  .hero { display: grid; gap: 28px; padding: 44px 0 56px; align-items: center; }
-  @media (min-width: 860px) { .hero { grid-template-columns: 1.05fr .95fr; gap: 48px; padding: 72px 0 80px; } }
-  .hero h1 { font-size: clamp(3.4rem, 11vw, 7rem); line-height: .92; }
-  .hero h1 em { font-style: normal; color: var(--led); }
-  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 34ch; margin: 18px 0 26px; }
+  .hero { display: grid; gap: 30px; padding: 44px 0 40px; align-items: center; }
+  @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr .9fr; gap: 56px; padding: 64px 0 56px; } }
+  .hero h1 { font-size: clamp(3.4rem, 11vw, 6.6rem); line-height: .9; }
+  .hero h1 em { display: block; font-family: var(--script); font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--led); font-size: .86em; line-height: 1.1; margin-top: .08em; transform: rotate(-2deg); transform-origin: left center; }
+  .hero p.lead { font-size: 20px; color: var(--muted); max-width: 34ch; margin: 22px 0 26px; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
-  .hero figure { margin: 0; position: relative; }
-  .hero img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; border-radius: 8px; display: block; border: 1px solid var(--line); }
+  .hero figure { margin: 0; }
+  .hero img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; border-radius: 90px 6px 6px 6px; display: block; border: 1px solid var(--line); }
+  @media (min-width: 860px) { .hero img { border-radius: 150px 6px 6px 6px; } }
 
-  /* faixa de poste */
+  /* faixa prática: onde, quando, telefone */
+  .strip { display: grid; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+  @media (min-width: 760px) { .strip { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+  .strip p { margin: 0; font-size: 18px; line-height: 1.4; }
+  .strip .eyebrow { margin-bottom: 4px; }
+  .strip a { text-decoration: none; }
+
+  /* faixa de poste, só como separador */
   .pole { height: 8px; margin: 0 -16px; background: repeating-linear-gradient(-45deg, var(--red) 0 14px, var(--fg) 14px 28px, var(--pole-blue) 28px 42px, var(--fg) 42px 56px); opacity: .9; }
 
   section { padding: 64px 0; }
-  section h2 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; margin-bottom: 8px; }
-  .sub { color: var(--muted); max-width: 52ch; margin: 0 0 32px; }
+  section h2 { font-size: clamp(2.6rem, 6.5vw, 4rem); line-height: .95; }
+  section h2::after { content: ""; display: block; width: 92px; height: 10px; margin-top: 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='10' viewBox='0 0 92 10'%3E%3Cpath d='M2 6 Q12 0 22 5 T42 5 T62 5 T89 4' fill='none' stroke='%235a8cff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat; }
+  .sub { color: var(--muted); max-width: 52ch; margin: 16px 0 32px; }
 
-  /* serviços */
-  .services { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-  @media (min-width: 760px) { .services { grid-template-columns: 1fr 1fr; column-gap: 48px; } }
-  .services li { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 19px; }
-  .services li small { color: var(--muted); font-size: 14px; margin-left: auto; text-align: right; }
-  .services li::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--led); transform: rotate(45deg); align-self: center; }
+  /* serviços: menu de quadro */
+  .menu { counter-reset: s; list-style: none; margin: 0; padding: 20px 26px; background: var(--bg2); border: 1px solid var(--line); border-radius: 4px; outline: 1px solid var(--line); outline-offset: -8px; display: grid; }
+  @media (min-width: 760px) { .menu { grid-template-columns: 1fr 1fr; column-gap: 56px; padding: 26px 40px; } }
+  .menu li { counter-increment: s; display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-bottom: 1px dashed var(--line); font-size: 21px; font-weight: 500; }
+  .menu li::before { content: counter(s, decimal-leading-zero); font-family: var(--script); color: var(--led); font-size: 19px; min-width: 2ch; }
+  .menu li small { margin-left: auto; text-align: right; color: var(--muted); font-size: 14px; font-weight: 400; }
+  @media (max-width: 759px) { .menu li { flex-wrap: wrap; } .menu li small { flex-basis: 100%; margin-left: 38px; text-align: left; margin-top: -8px; } }
 
   /* trabalhos */
-  .gallery { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
-  @media (min-width: 760px) { .gallery { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-  .gallery img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; border: 1px solid var(--line); }
+  .gallery { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: start; }
   .gallery figure { margin: 0; min-width: 0; }
+  .gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; display: block; border: 1px solid var(--line); }
+  .gallery figcaption { margin-top: 8px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .gallery .wide { grid-column: 1 / -1; }
   .gallery .wide img { aspect-ratio: 16 / 9; object-position: 50% 30%; }
-  @media (min-width: 760px) { .gallery .wide { grid-column: auto; } .gallery .wide img { aspect-ratio: 4 / 5; } }
+  @media (min-width: 760px) {
+    .gallery { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .gallery .wide { grid-column: auto; }
+    .gallery .wide img { aspect-ratio: 4 / 5; }
+    .gallery figure:nth-child(1) { transform: rotate(-1.2deg); }
+    .gallery figure:nth-child(2) { margin-top: 44px; }
+    .gallery figure:nth-child(3) { transform: rotate(1.2deg); margin-top: 14px; }
+  }
 
   /* espaço */
   .space { display: grid; gap: 32px; align-items: center; }
   @media (min-width: 860px) { .space { grid-template-columns: .8fr 1.2fr; gap: 56px; } }
-  .space img { width: 100%; max-width: 420px; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 40%; border-radius: 8px; display: block; border: 1px solid var(--line); }
+  .photo { position: relative; max-width: 420px; }
+  .space img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 40%; border-radius: 4px; display: block; border: 1px solid var(--line); }
   .space p { color: var(--muted); max-width: 52ch; }
   .space p strong { color: var(--fg); font-weight: 600; }
+  .badge { position: absolute; top: 10px; right: 10px; width: 116px; height: 116px; border-radius: 50%; background: var(--led); color: var(--led-ink); display: block; box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+  .badge svg { width: 100%; height: 100%; display: block; }
+  .badge .ring { transform-box: fill-box; transform-origin: center; animation: spin 28s linear infinite; }
+  .badge:hover { background: #84a8ff; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .badge .ring { animation: none; } }
 
   /* horário e contactos */
   .info { display: grid; gap: 40px; }
   @media (min-width: 860px) { .info { grid-template-columns: 1fr 1fr; gap: 64px; } }
-  .hours { width: 100%; border-collapse: collapse; font-size: 18px; }
-  .hours td { padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .hours { width: 100%; border-collapse: collapse; font-size: 19px; }
+  .hours td { padding: 11px 0; border-bottom: 1px dashed var(--line); }
   .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .hours tr.closed td:last-child { color: var(--muted); }
   .hours tr.today td { color: var(--led); font-weight: 600; }
-  address { font-style: normal; font-size: 19px; line-height: 1.6; }
+  address { font-style: normal; font-size: 20px; line-height: 1.6; }
   .contact-list { display: grid; gap: 12px; margin-top: 22px; }
-  .big-phone { font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(2.4rem, 8vw, 3.2rem); text-decoration: none; letter-spacing: .03em; color: var(--led); line-height: 1; }
-  .book { background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 32px 24px; text-align: left; }
-  .book h2 { margin-bottom: 10px; }
-  .book p { color: var(--muted); margin: 0 0 22px; max-width: 46ch; }
+  .big-phone { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 9vw, 3.6rem); text-decoration: none; letter-spacing: .03em; color: var(--led); line-height: 1; }
+  .book { background: var(--bg2); border: 2px dashed var(--line); border-radius: 6px; padding: 34px 26px; }
+  .book h2 { margin-bottom: 4px; }
+  .book h2::after { margin-bottom: 8px; }
+  .book p { color: var(--muted); margin: 8px 0 22px; max-width: 46ch; }
 
   footer { padding: 34px 0 44px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; border-top: 1px solid var(--line); }
   footer a { color: var(--muted); }
@@ -125,7 +153,6 @@
 </style>
 </head>
 <body>
-
 
 <div class="wrap">
   <header>
@@ -147,7 +174,7 @@
       <div>
         <p class="eyebrow">Barbearia em Manique de Baixo, desde 2016</p>
         <h1>Mais que um corte, <em>um legado.</em></h1>
-        <p class="lead">Cortes, degradês e barba em Alcabideche. Marca online em poucos passos ou liga diretamente.</p>
+        <p class="lead">Cortes, degradês e barba em Alcabideche. Marca online ou liga ao Paulo.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://paulosbarbershop.keymaster.pt/client/schedule-lite?directAppointment=true&details=" target="_blank" rel="noopener">Marcar online</a>
           <a class="btn btn-ghost" href="tel:+351916273041">Ligar 916 273 041</a>
@@ -156,6 +183,21 @@
       <figure>
         <img src="images/hero.jpg" alt="Cliente a olhar para a câmara numa cadeira de barbeiro, com degradê e desenho feito à máquina na lateral da cabeça" width="958" height="901">
       </figure>
+    </div>
+
+    <div class="strip">
+      <div>
+        <p class="eyebrow">Quando</p>
+        <p>Terça a sexta, 09:30 às 19:00<br>Sábado, 09:00 às 19:00</p>
+      </div>
+      <div>
+        <p class="eyebrow">Onde</p>
+        <p>Estr. Quinta 898A, Manique de Baixo<br>2645-436 Alcabideche</p>
+      </div>
+      <div>
+        <p class="eyebrow">Telefone</p>
+        <p><a href="tel:+351916273041">916 273 041</a><br>Fechado ao domingo e à segunda</p>
+      </div>
     </div>
   </main>
 </div>
@@ -167,7 +209,7 @@
     <p class="eyebrow">O que fazemos</p>
     <h2 id="h-serv">Serviços</h2>
     <p class="sub">Escolhe o serviço ao marcar online. Para os preços, pergunta por telefone ou na barbearia.</p>
-    <ul class="services">
+    <ol class="menu">
       <li>Corte simples</li>
       <li>Degradê (fade)</li>
       <li>Barba</li>
@@ -177,7 +219,7 @@
       <li>Lavagem</li>
       <li>Coloração</li>
       <li>Descoloração</li>
-    </ul>
+    </ol>
   </section>
 </div>
 
@@ -189,9 +231,9 @@
     <h2 id="h-trab">Trabalhos</h2>
     <p class="sub">Degradês limpos, barbas aparadas e desenhos à máquina.</p>
     <div class="gallery">
-      <figure class="wide"><img src="images/corte-desenho.jpg" alt="Perfil de um jovem com degradê alto e desenho feito à máquina na lateral" loading="lazy"></figure>
-      <figure><img src="images/degrade-barba.jpg" alt="Homem de perfil com degradê e barba aparada" loading="lazy"></figure>
-      <figure><img src="images/perfil-barba.jpg" alt="Homem de perfil com degradê e barba cheia bem definida" loading="lazy"></figure>
+      <figure class="wide"><img src="images/corte-desenho.jpg" alt="Perfil de um jovem com degradê alto e desenho feito à máquina na lateral" loading="lazy"><figcaption>Degradê com desenho</figcaption></figure>
+      <figure><img src="images/degrade-barba.jpg" alt="Homem de perfil com degradê e barba aparada" loading="lazy"><figcaption>Degradê e barba</figcaption></figure>
+      <figure><img src="images/perfil-barba.jpg" alt="Homem de perfil com degradê e barba cheia bem definida" loading="lazy"><figcaption>Barba definida</figcaption></figure>
     </div>
   </section>
 </div>
@@ -201,12 +243,21 @@
 <div class="wrap">
   <section aria-labelledby="h-esp">
     <div class="space">
-      <img src="images/espaco.jpg" alt="Barbeiro a cortar cabelo a um cliente numa barbearia de paredes brancas, com luz LED azul, espelhos e figuras colecionáveis numa prateleira" loading="lazy">
+      <div class="photo">
+        <img src="images/espaco.jpg" alt="Barbeiro a cortar cabelo a um cliente numa barbearia de paredes brancas, com luz LED azul, espelhos e figuras colecionáveis numa prateleira" loading="lazy">
+        <a class="badge" href="https://maps.app.goo.gl/BmwoaYz8o5VndpBi7" target="_blank" rel="noopener" aria-label="Como chegar: abre o Google Maps">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="circ" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+            <g class="ring"><text font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="14" fill="currentColor"><textPath href="#circ" textLength="278" lengthAdjust="spacing">COMO CHEGAR · MANIQUE DE BAIXO · </textPath></text></g>
+            <path d="M44 76 L76 44 M52 44 H76 V68" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
       <div>
         <p class="eyebrow">A barbearia</p>
-        <h2 id="h-esp">Um espaço com personalidade</h2>
-        <p>Parede de quadro preto escrita a giz, luz azul por cima dos espelhos e figuras de coleção na prateleira. <strong>Marca online</strong> ou liga, e passa por Manique de Baixo.</p>
-        <div class="cta-row" style="margin-top:20px">
+        <h2 id="h-esp">Passa por cá</h2>
+        <p class="sub" style="margin-bottom:0">Parede de quadro preto escrita a giz, luz azul por cima dos espelhos e figuras de coleção na prateleira. <strong>Marca online</strong> ou liga, e passa por Manique de Baixo.</p>
+        <div class="cta-row" style="margin-top:22px">
           <a class="btn btn-ghost" href="https://www.instagram.com/paulos.barbershop/" target="_blank" rel="noopener">Ver o Instagram</a>
         </div>
       </div>
@@ -238,7 +289,7 @@
       <div id="contactos">
         <p class="eyebrow">Onde estamos</p>
         <h2>Contactos</h2>
-        <address class="sub" style="margin-top:8px">
+        <address class="sub" style="margin-top:16px">
           Estr. Quinta 898A, Manique de Baixo<br>2645-436 Alcabideche
         </address>
         <a class="big-phone" href="tel:+351916273041">916 273 041</a>
