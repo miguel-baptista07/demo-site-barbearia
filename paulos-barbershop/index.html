@@ -69,6 +69,10 @@
   .hero h1 em { display: block; font-family: var(--script); font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--led); font-size: .86em; line-height: 1.1; margin-top: .08em; transform: rotate(-2deg); transform-origin: left center; }
   .hero p.lead { font-size: 20px; color: var(--muted); max-width: 34ch; margin: 22px 0 26px; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .rating { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; font-size: 16px; color: var(--muted); text-decoration: none; }
+  .rating strong { color: var(--fg); font-weight: 600; }
+  .rating .stars { color: var(--led); letter-spacing: .12em; }
+  .rating:hover, .rating:focus-visible { color: var(--fg); }
   .hero figure { margin: 0; }
   .hero img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; border-radius: 90px 6px 6px 6px; display: block; border: 1px solid var(--line); }
   @media (min-width: 860px) { .hero img { border-radius: 150px 6px 6px 6px; } }
@@ -175,6 +179,7 @@
         <p class="eyebrow">Barbearia em Manique de Baixo, desde 2016</p>
         <h1>Mais que um corte, <em>um legado.</em></h1>
         <p class="lead">Cortes, degradês e barba em Alcabideche. Marca online ou liga ao Paulo.</p>
+        <a class="rating" href="https://maps.app.goo.gl/BmwoaYz8o5VndpBi7" target="_blank" rel="noopener" aria-label="4,9 estrelas no Google, mais de 60 avaliações. Ver avaliações no Google"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>4,9 no Google</strong> · mais de 60 avaliações</span></a>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://paulosbarbershop.keymaster.pt/client/schedule-lite?directAppointment=true&details=" target="_blank" rel="noopener">Marcar online</a>
           <a class="btn btn-ghost" href="tel:+351916273041">Ligar 916 273 041</a>
